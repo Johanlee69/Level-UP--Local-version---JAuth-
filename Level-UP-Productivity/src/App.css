@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+.Time- {
+  font-weight: bold;
+  background: linear-gradient(to left, #5D1BE3, #C2FFF3, #cec0eb, #a395bd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

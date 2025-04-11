@@ -1,0 +1,80 @@
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.focus-mode-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(93, 27, 227, 0.2);
+  border: 1px solid rgba(93, 27, 227, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.focus-mode-button:hover {
+  background: rgba(93, 27, 227, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(93, 27, 227, 0.2);
+}
+
+.focus-mode-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Time header styling */
+.time-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 16px 24px;
+  background: rgba(54, 47, 47, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.time-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.time-ticking-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #C2FFF3, #5D1BE3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .time-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .time-header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .focus-mode-button {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+} 

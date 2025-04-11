@@ -1,0 +1,119 @@
+/* Calendar custom styles to match login theme */
+.custom-calendar {
+  width: 100%;
+  background: transparent !important;
+  color: white !important;
+  border: none !important;
+}
+
+.custom-calendar .react-calendar__navigation {
+  background: transparent;
+}
+
+.custom-calendar .react-calendar__navigation button {
+  color: white;
+  background: transparent;
+  min-width: 30px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.custom-calendar .react-calendar__navigation button:enabled:hover,
+.custom-calendar .react-calendar__navigation button:enabled:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.custom-calendar .react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.custom-calendar .react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+
+.custom-calendar .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+.custom-calendar .react-calendar__tile {
+  padding: 0.75em 0.5em;
+  background: transparent;
+  text-align: center;
+  color: white;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.custom-calendar .react-calendar__tile:enabled:hover,
+.custom-calendar .react-calendar__tile:enabled:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.custom-calendar .react-calendar__tile--now {
+  background: rgba(16, 114, 241, 0.15);
+  border: 1px solid #1072F1;
+}
+
+.custom-calendar .react-calendar__tile--now:enabled:hover,
+.custom-calendar .react-calendar__tile--now:enabled:focus {
+  background: rgba(16, 114, 241, 0.3);
+}
+
+.custom-calendar .react-calendar__tile--active {
+  background: rgba(93, 27, 227, 0.3);
+  border: 1px solid #5D1BE3;
+  color: white;
+}
+
+.custom-calendar .react-calendar__tile--active:enabled:hover,
+.custom-calendar .react-calendar__tile--active:enabled:focus {
+  background: rgba(93, 27, 227, 0.4);
+}
+
+.custom-calendar .react-calendar__month-view__days__day--neighboringMonth {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Custom scrollbar for task list */
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Input styling */
+input[type="checkbox"] {
+  accent-color: #1072F1;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.5;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+} 

@@ -1,0 +1,198 @@
+.homepage-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(18, 14, 27, 0.95), rgba(93, 27, 227, 0.7));
+  overflow: hidden;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.time-header {
+  display: flex;
+  gap: 1%;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.time-ticking-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #C2FFF3, #5D1BE3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.digital-clock {
+  font-size: 1rem;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.time-unit {
+  font-weight: 700;
+  color: #C2FFF3;
+}
+
+.content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs-container {
+  display: flex;
+  background-color: rgba(54, 47, 47, 0.34);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 0.75rem 0.75rem 0 0;
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.tab:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: white;
+}
+
+.tab.active {
+  color: white;
+  border-bottom: 2px solid #5D1BE3;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.tab-content {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 1.5rem;
+  height: calc(100vh - 14rem);
+}
+
+.daily-view, .custom-view, .calendar-view, .performance-view {
+  height: 100%;
+  background-color: rgba(54, 47, 47, 0.34);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  overflow: auto;
+}
+
+/* Profile view styling */
+.profile-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: rgba(93, 27, 227, 0.1);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.profile-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5D1BE3, #1072F1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-details {
+  flex: 1;
+}
+
+.profile-details h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.profile-details p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .time-header {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .time-ticking-text {
+    font-size: 1rem;
+  }
+  
+  .tab-content {
+    padding: 1rem;
+    height: calc(100vh - 13rem);
+  }
+  
+  .tabs-container {
+    flex-wrap: wrap;
+  }
+  
+  .tab {
+    min-width: 50%;
+    flex: initial;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+  }
+} 

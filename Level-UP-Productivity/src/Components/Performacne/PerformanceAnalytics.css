@@ -1,0 +1,152 @@
+/* Custom scrollbar for task lists in the performance analytics component */
+.task-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin: 4px 0;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background: rgba(93, 27, 227, 0.5);
+  border-radius: 10px;
+  border: 2px solid rgba(30, 21, 37, 0.5);
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(93, 27, 227, 0.7);
+}
+
+/* Custom tooltip styles */
+.custom-tooltip {
+  background-color: rgba(54, 47, 47, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 10px;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  pointer-events: none;
+  z-index: 10;
+  max-width: 200px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.custom-tooltip.show {
+  opacity: 1;
+}
+
+.chart-tooltip-title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 4px;
+}
+
+.chart-tooltip-body {
+  text-align: center;
+}
+
+.chart-tooltip-body div {
+  margin: 3px 0;
+}
+
+/* Make Chart.js tooltips invisible */
+#chartjs-tooltip-productivity {
+  z-index: 10;
+}
+
+/* Hide default Chart.js tooltips */
+canvas + .chartjs-tooltip {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Animation for elements */
+.analytics-card {
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.analytics-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Chart container styling */
+.chart-container {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Interactive chart elements */
+.chart-container canvas {
+  cursor: pointer;
+}
+
+/* Task item styling */
+.task-item {
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.task-item:hover {
+  transform: translateX(5px);
+}
+
+/* Interactive elements */
+button, 
+.react-calendar__navigation button,
+.react-calendar__tile,
+.react-calendar__month-view__days__day {
+  cursor: pointer !important;
+}
+
+/* Analytics container scrollbar - ensure it works */
+.analytics-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(138, 75, 175, 0.5) transparent;
+  height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+  position: relative;
+}
+
+.analytics-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.analytics-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.analytics-container::-webkit-scrollbar-thumb {
+  background-color: rgba(138, 75, 175, 0.5);
+  border-radius: 20px;
+}
+
+.analytics-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(138, 75, 175, 0.8);
+}
+
+/* Fix for nested scrollbars */
+.analytics-container > div, 
+.analytics-container > div > div,
+.analytics-container .grid {
+  overflow: visible !important;
+}
+
+/* Prevent task lists from scrolling independently */
+.analytics-container .task-list {
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+} 

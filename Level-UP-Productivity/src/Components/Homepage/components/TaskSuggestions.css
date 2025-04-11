@@ -1,0 +1,243 @@
+.task-suggestions-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 350px;
+  max-width: 90vw;
+  background: rgba(54, 47, 47, 0.35);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 30px rgba(93, 27, 227, 0.15);
+  color: white;
+  z-index: 1000;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.task-suggestions-container.closed {
+  height: 50px;
+}
+
+.task-suggestions-container.open {
+  max-height: 400px;
+}
+
+.task-suggestions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.task-suggestions-header:hover {
+  background-color: rgba(93, 27, 227, 0.15);
+}
+
+.task-suggestions-header:active {
+  background-color: rgba(93, 27, 227, 0.25);
+}
+
+.task-suggestions-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #C2FFF3, #5D1BE3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.toggle-indicator {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.task-suggestions-header:hover .toggle-indicator {
+  color: white;
+}
+
+.task-suggestions-content {
+  padding: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  max-height: 350px;
+}
+
+.task-suggestions-container.closed .task-suggestions-content {
+  max-height: 0;
+  padding: 0;
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(93, 27, 227, 0.3);
+  border-radius: 50%;
+  border-top-color: #5D1BE3;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  color: #F43655;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+.suggestions-list {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background-color: rgba(93, 27, 227, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-item:active {
+  transform: translateY(0);
+  background-color: rgba(93, 27, 227, 0.3);
+}
+
+.suggestion-text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-right: 10px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  padding-right: 30px;
+}
+
+.suggestion-text strong {
+  color: #ac8eeb; /* Light purple color */
+  font-weight: 700;
+  background-color: rgba(172, 142, 235, 0.15);
+  padding: 1px 4px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.add-suggestion-button {
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  background: rgba(93, 27, 227, 0.2);
+  border: 1px solid rgba(93, 27, 227, 0.3);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  position: absolute;
+  right: 20px;
+  z-index: 2;
+}
+
+.suggestion-item:hover .add-suggestion-button {
+  background: rgba(93, 27, 227, 0.4);
+  transform: scale(1.1);
+}
+
+/* Tooltip appearance */
+.suggestion-item::after {
+  content: 'Click to add';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+  pointer-events: none;
+}
+
+.suggestion-item:hover::after {
+  opacity: 0.9;
+  visibility: visible;
+}
+
+/* Scrollbar styling */
+.suggestions-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.suggestions-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb {
+  background: rgba(93, 27, 227, 0.3);
+  border-radius: 3px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(93, 27, 227, 0.5);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .task-suggestions-container {
+    bottom: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+  }
+  
+  .suggestion-item::after {
+    display: none; /* Hide tooltip on mobile */
+  }
+} 

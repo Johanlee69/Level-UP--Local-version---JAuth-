@@ -1,0 +1,204 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand-text {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+.brand-text h1 {
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #5E14AD, #9B95F0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  position: relative;
+}
+
+.gradient-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+  opacity: 0;
+  animation: none;
+}
+
+.login-container {
+  animation: fadeIn 0.8s ease-out;
+  position: relative;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 
+              0 0 30px rgba(93, 27, 227, 0.15);
+  overflow: hidden;
+  padding: 2%;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #5D1BE320, #9B95F020, transparent, transparent, #5D1BE320);
+  border-radius: inherit;
+  z-index: -1;
+  animation: borderGlow 6s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% {
+    border-color: rgba(94, 20, 173, 0.5);
+    box-shadow: 0 0 5px rgba(94, 20, 173, 0.5);
+  }
+  100% {
+    border-color: rgba(155, 149, 240, 0.8);
+    box-shadow: 0 0 20px rgba(155, 149, 240, 0.8);
+  }
+}
+
+/* Form elements styling */
+.form-group {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+input {
+  background-color: transparent !important;
+  transition: all 0.3s ease;
+  border: none;
+  border-bottom: 1px solid rgba(93, 27, 227, 0.5);
+}
+
+input:focus {
+  box-shadow: none;
+  outline: none;
+  transform: none;
+  border-bottom-width: 2px;
+  border-color: rgba(93, 27, 227, 1) !important;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Fix for autocomplete background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0) inset !important;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+  background-clip: content-box !important;
+  background: transparent !important;
+  caret-color: white;
+}
+
+/* Fixing autocomplete suggestions background */
+input.autocomplete-input:-webkit-autofill {
+  background-color: transparent !important;
+}
+
+/* Override browser agent styling for autocomplete dropdown */
+input:-webkit-autofill-selected,
+select:-webkit-autofill-selected {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+/* Firefox specific */
+input:-moz-autofill,
+input:-moz-autofill-preview {
+  filter: none !important;
+  background: transparent !important;
+}
+
+button {
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 114, 241, 0.3);
+}
+
+button[type="submit"]:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.4s;
+}
+
+button[type="submit"]:hover:after {
+  left: 100%;
+}
+
+/* Password visibility toggle button */
+.form-group .relative button {
+  background: transparent;
+  box-shadow: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  top: 0;
+  padding-right: 4px;
+}
+
+.form-group .relative button:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.form-group .relative {
+  display: flex;
+  align-items: center;
+}
+
+/* Google icon specific size */
+button svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.google-logo {
+  filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.2));
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .w-\[25vw\] {
+    width: 90vw !important;
+  }
+  
+  .h-\[70vh\] {
+    height: 80vh !important;
+  }
+} 
