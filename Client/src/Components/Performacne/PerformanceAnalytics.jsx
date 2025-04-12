@@ -11,12 +11,15 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  LineController,
+  BarController
 } from 'chart.js';
 import { Pie, Line, Bar } from 'react-chartjs-2';
 import '../Login_page/Login.css';
 import './PerformanceAnalytics.css';
 
+// Register required Chart.js components
 ChartJS.register(
   ArcElement,
   CategoryScale,
@@ -27,7 +30,9 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  LineController,
+  BarController
 );
 
 export const PerformanceAnalytics = ({ dailyTasks = [], customCards = [], calendarTasks = {} }) => {

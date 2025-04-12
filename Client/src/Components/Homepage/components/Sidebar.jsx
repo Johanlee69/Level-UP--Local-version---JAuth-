@@ -6,8 +6,6 @@ import './Sidebar.css';
 // Enhanced markdown formatter
 const formatMarkdown = (text) => {
   if (!text) return '';
-  
-  // Fix numbered lists that might be separated by newlines
   text = text.replace(/(\d+\.\s+.*?)(\n\n)(\d+\.\s+)/g, '$1\n$3');
   
   // Format unordered lists
