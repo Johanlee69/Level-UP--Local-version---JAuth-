@@ -3,7 +3,6 @@ import { DailyTasks } from './components/DailyTasks';
 import { CustomTaskCards } from './components/CustomTaskCards';
 import { Calendar } from './components/Calendar';
 import { PerformanceAnalytics } from '../Performacne/PerformanceAnalytics';
-import Sidebar from './components/Sidebar';
 import { DigitalClock } from './components/DigitalClock';
 import { useAuth } from '../../Context/AuthContext';
 import { useLevel } from '../../Context/LevelContext';
@@ -306,9 +305,6 @@ function Homepage({ initialTab, toggleSidebar, isSidebarOpen }) {
           </>
         )}
       </div>
-
-      {/* Sidebar */}
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
     </div>
   );
 }

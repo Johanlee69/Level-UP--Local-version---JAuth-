@@ -57,11 +57,6 @@ const Login = () => {
     }
   };
 
-  const handleGoogleLogin = async () => {
-    // This is a placeholder for Google OAuth login
-    // In a real implementation, you would use Google's OAuth library
-    alert("Google login is not implemented yet");
-  };
 
   const toggleNewUser = () => {
     setNewUser(!newUser);
@@ -83,27 +78,17 @@ const Login = () => {
     
     try {
       setIsLoading(true);
-      // Call register method from AuthContext with user data
       const registerResponse = await register({ name, email, password });
-      // Login automatically after registration
       const loginResponse = await login({ email, password });
-      // Redirect handled by AuthContext
     } catch (err) {
       console.error("Registration error:", err);
-      
-      // Better error extraction from different possible error formats
       let errorMsg;
-      
-      // Check if the error has a response object with data (from axios)
       if (err.response?.data) {
         errorMsg = err.response.data.error || err.response.data.message;
       } 
-      // Check if the error is coming from our API service or AuthContext
       else if (err.message) {
         errorMsg = err.message;
       }
-      
-      // If all else fails, provide a generic message
       if (!errorMsg || errorMsg.includes("Registration failed") || errorMsg.includes("failed")) {
         errorMsg = "Registration failed. Please try again with different credentials.";
       }
@@ -116,15 +101,12 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative bg-gradient-to-br from-[#120E1B] to-[#5D1BE3]">
-      {/* Brand Logo Animation - Outside the login container */}
       <div className="absolute top-8 left-8">
         <div className="brand-text">
           <h1 className="text-4xl font-bold text-white">Level UP ✨</h1>
           <h2 className="text-7xl font-bold gradient-text">Productivity</h2>
         </div>
       </div>
-
-      {/* Login Container - Now with fixed dimensions */}
       <div className="flex-1 flex items-center justify-center">
         <div className="login-container w-[25vw] h-[70vh] bg-[#362f2f57] backdrop-blur-md rounded-xl shadow-2xl p-12 border border-[#ffffff20]">
           <div className="text-left mb-8">

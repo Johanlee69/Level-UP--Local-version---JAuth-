@@ -21,7 +21,6 @@ const LevelProgressRing = ({ level, progress, showDetails, setShowDetails }) => 
       onMouseLeave={() => setShowDetails(false)}
     >
       <svg width={size} height={size} className="transform -rotate-90">
-        {/* Background circle */}
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -30,8 +29,6 @@ const LevelProgressRing = ({ level, progress, showDetails, setShowDetails }) => 
           stroke="rgba(255, 255, 255, 0.2)"
           fill="transparent"
         />
-        
-        {/* Progress circle */}
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -83,7 +80,6 @@ const Navbar = ({ toggleSidebar, isSidebarOpen }) => {
             <div className="ml-10 flex items-center space-x-4">
               {isAuthenticated ? (
                 <>
-                  {/* Level indicator */}
                   <LevelProgressRing 
                     level={level} 
                     progress={progress} 
@@ -91,7 +87,6 @@ const Navbar = ({ toggleSidebar, isSidebarOpen }) => {
                     setShowDetails={setShowLevelDetails}
                   />
                   
-                  {/* Username display */}
                   <span className="text-white font-medium mr-2">
                     {user?.name || 'User'}
                   </span>
@@ -118,11 +113,9 @@ const Navbar = ({ toggleSidebar, isSidebarOpen }) => {
             </div>
           </div>
 
-          {/* Mobile menu */}
           <div className="md:hidden flex items-center">
             {isAuthenticated ? (
               <div className="flex items-center">
-                {/* Level indicator for mobile */}
                 <LevelProgressRing 
                   level={level} 
                   progress={progress} 
