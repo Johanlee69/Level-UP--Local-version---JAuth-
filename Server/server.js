@@ -5,13 +5,9 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
 
-// Load environment variables from root .env file
 dotenv.config();
-
-// Suppress punycode deprecation warning (DEP0040)
 process.noDeprecation = true;
 
-// Manual override if variables not loaded
 if (!process.env.MONGO_URI) {
   console.log('Warning: MONGO_URI not found in .env file. Using fallback values.');
   process.env.MONGO_URI = 'mongodb+srv://Admin:12345@blog-db.92xae.mongodb.net/?retryWrites=true&w=majority&appName=Blog-DB';
@@ -30,30 +26,21 @@ console.log(`MONGO_URI: ${process.env.MONGO_URI ? 'Set (value hidden)' : 'Not se
 console.log(`JWT_SECRET: ${process.env.JWT_SECRET ? 'Set (value hidden)' : 'Not set'}`);
 console.log(`PORT: ${process.env.PORT}`);
 
-// Load the connectDB after environment variables are set
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
 
-// Connect to database
 connectDB();
 
-// Initialize app
 const app = express();
-
-// Body parser
 app.use(express.json());
-
-// Cookie parser
 app.use(cookieParser());
-
-// Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
 // Enable CORS
 app.use(cors({
-  origin: [process.env.CLIENT_URL,'http://localhost:5173'],
+  origin: [process.env.CLIENT_URL],
   credentials: true
 }));
 
@@ -84,7 +71,14 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/chat', require('./routes/chat'));
 
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, './client/dist')));
 
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
+  });
+}
 
 app.use(errorHandler);
 
@@ -95,10 +89,8 @@ const server = app.listen(
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
 );
 
-// Handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
   console.log(`Error: ${err.message}`);
-  // Close server & exit process
   server.close(() => process.exit(1));
 });
 
