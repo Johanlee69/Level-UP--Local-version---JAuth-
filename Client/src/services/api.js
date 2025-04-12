@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Base API URL
-const API_URL = 'http://localhost:5000/api' || 'https://level-up-local-version-jauth.onrender.com/api';
+const API_URL = 'https://level-up-local-version-jauth.onrender.com/api';
 
 // Create axios instance with default config
 const api = axios.create({
