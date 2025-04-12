@@ -10,7 +10,7 @@ const apiClient = axios.create({
   withCredentials: true,
 });
 
-// Chat API calls
+
 export const chatAPI = {
   sendMessage: async (message) => {
     try {
