@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(cors({
-  origin: ['https://level-up-local-version-jauth.onrender.com', 'https://level-up-35in.onrender.com', process.env.CLIENT_URL],
+  origin: ['https://level-up-local-version-jauth.onrender.com', 'https://level-up-35in.onrender.com','http://localhost:5173'],
   credentials: true
 }));
 
@@ -49,6 +49,7 @@ app.use(hpp());
 // Mount routers
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/users', require('./routes/users'));
+app.use('/api/chat', require('./routes/chat'));
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
